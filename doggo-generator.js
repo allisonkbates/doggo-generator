@@ -10,3 +10,13 @@ fetch("https://api.thedogapi.com/v1/images/search")
 			console.log(imageUrl);
 			console.log(data);
 		});
+
+var pf = new petfinder.Client({apiKey: doggo-generator.env, secret: "my-api-secret"});
+
+pf.animal.search()
+    .then(function (response) {
+        // Do something with `response.data.animals`
+    })
+    .catch(function (error) {
+        // Handle the error
+    });
