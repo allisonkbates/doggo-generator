@@ -1,5 +1,4 @@
-function getDog() {
-	fetch("https://api.thedogapi.com/v1/images/search")
+fetch("https://api.thedogapi.com/v1/images/search")
 		.then((response) => {
 			return response.json();
 		})
@@ -9,11 +8,5 @@ function getDog() {
 			newDog.src = imageUrl;
 			document.body.appendChild(newDog);
 			console.log(imageUrl);
+			console.log(data);
 		});
-		console.log('I got a dog!');
-		//console.log(data);
-}
-
-function addImage() {
-	
-}
