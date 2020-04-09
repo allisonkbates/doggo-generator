@@ -1,25 +1,7 @@
-h1 {
-	font-size: 18px;
+h1, h2 {
 	color: #383D48;
 	font-family: 'Titillium Web', sans-serif;
 }
-
-p {
-	font-size: 12px;
-}
-
-button {
-	height: 40px;
-	padding: 0px 20px 0px 20px;
-	font-size: 14px;
-	font-family: 'Titillium Web', sans-serif;
-	background-color: #AE8F4E;
-	color: #F3F2E6;
-	border-radius: 2px;
-	border: none;
-}
-
 img {
-	background-color: #383D48;
-	height: 300px;
+	height: 250px;
 }
