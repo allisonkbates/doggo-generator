@@ -25,3 +25,6 @@ Alaskan Husky = 8
 ## CSS Resources
 - https://css-tricks.com/difference-between-types-of-css-variables/
 - https://css-tricks.com/almanac/properties/f/filter/
+- https://css-tricks.com/getting-javascript-to-talk-to-css-and-sass/
+
+### Website designs to consider
