@@ -14,10 +14,35 @@ font-family: 'Shadows Into Light', cursive;
 
 
 body {
-
+	margin: 0;
+	padding: 0;
 }
 
 header {
 	height: 75px;
 	background-color: var(--primary-color);
+	font-family: var(--primary-font);
+	font-weight: 300;
+	color: var(--light-color);
+	margin: 0;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0px 82px;
 }
+
+nav {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+
+
