@@ -143,28 +143,45 @@ button:hover {
 
 /* Cards Styles */
 .cards {
-	display: flex;
+
 }
 .card {
 	width: 250px;
-	height: 386px;
+	height: 410px;
 	margin: 80px;
+	/* colors */
 	background-color: var(--light-color);
 	box-shadow: -10px 0px var(--primary-color), 0px -10px var(--primary-color), -10px -10px var(--primary-color);
 	border: 1px solid var(--dark-color);
 	border-bottom: 1px solid var(--primary-color);	
+	border-right: 1px solid var(--primary-color);
+	border-top: 1px solid var(--light-color);
+	border-left: 1px solid var(--light-color);
+	/* grids */
+	display: grid;
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-gap: 20px;
+}
+
+.dog-img-card {
+	grid-column: 1 / span 3;
+	grid-row: 1 / span 3;
 }
 
 .badge {
+	grid-column: 1 / span 3;
+	grid-row: 3 / span 1;
 	background-color: var(--primary-color);
 	color: var(--light-color);
 	font-family: var(--styled-font);
 	font-size: 18px;
-	height: 40px;
 	padding: 0px 30px;
-	display: flex;
-	justify-content: center;
-	align-items: center;	
+	margin: 0px;
+}
+
+.dog-info {
+	grid-column: 1 / span 3;
 }
 
 .italic-text {
@@ -179,7 +196,7 @@ button:hover {
 	font-family: var(--primary-font);
 	font-weight: 300;
 	font-size: 14px;
-	color: var(--dark-color);
+	color: var(--dark-color);;
 }
 
 .results-text {
