@@ -143,12 +143,15 @@ button:hover {
 
 /* Cards Styles */
 .cards {
-
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	padding: 0px 92px;
 }
 .card {
 	width: 250px;
 	height: 400px;
-	margin: 80px;
+	margin: 20px 28px 20px 0px;
 	/* colors */
 	background-color: var(--light-color);
 	box-shadow: -10px 0px var(--primary-color), 0px -10px var(--primary-color), -10px -10px var(--primary-color);
@@ -157,6 +160,10 @@ button:hover {
 	border-right: 1px solid var(--primary-color);
 	border-top: 1px solid var(--light-color);
 	border-left: 1px solid var(--light-color);
+}
+
+.card:last-child {
+	margin-right: 0px;
 }
 
 .dog-img-card {
