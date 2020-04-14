@@ -4,7 +4,6 @@
 - As a user, I can see the dog of the day (from theDogAPI).
 - As a user, I can see a grid of Dog Cards.
 
-
 ## V2	
 - As a user, I can choose to look at dogs of a specific breed by selecting via a dropdown.
 
@@ -20,6 +19,10 @@ Alaskan Husky = 8
 - Age
 - Size
 - Gender
+
+
+## JS Resources
+- https://gomakethings.com/using-oauth-with-fetch-in-vanilla-js/
 
 
 ## CSS Resources

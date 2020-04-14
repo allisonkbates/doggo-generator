@@ -1,54 +1,86 @@
-/*fetch("https://api.thedogapi.com/v1/images/search")
-		.then((response) => {
-			return response.json();
-		})
-		.then((data) => {
-			const imageUrl = data[0]["url"];
-			var newDog = document.createElement("img");
-			newDog.src = imageUrl;
-			document.body.appendChild(newDog);
-			console.log(imageUrl);
-			console.log(data);
-		});
+// creds
+const key = '';
+const secret = '';
+// dog filters
+const size = 'large';
+const type = 'dog';
+const status = 'adoptable';
+// token vars
+var token, tokenType, expires;
 
-fetch("https://api.thedogapi.com/v1/images/search?mime_types=gif")
-	.then((response) => {
+// get doggos
+var getDoggos = function() {
+	return fetch('https://api.petfinder.com/v2/animals?size=' + size + '&type=' + type + '&status=' + status, {
+		headers: {
+			'Authorization': tokenType + ' ' + token,
+			'Content-Type': 'application/x-www-form-urlencoded'
+		}
+	}).then(function(response) {
 		return response.json();
-	})
-	.then((data) => {
-		const gifUrl = data[0]["url"];
-		var gifDog = document.createElement("img");
-		gifDog.src = gifUrl;
-		document.body.appendChild(gifDog);
-		console.log(gifUrl);
+	}).then(function(data) {
+		console.log('dogs', data);
+	}).catch(function(err){
+		console.log('something went wrong...', err);
 	});
-fetch("https://api.thedogapi.com/v1/breeds")
-		.then((response) => {
-			return response.json();
-		})
-		.then((data) => {
-			console.log(data);
+};
+
+// get oAuth creds
+var getOAuth = function() {
+	return fetch('https://api.petfinder.com/v2/oauth2/token', {
+	method: 'POST',
+	body: 'grant_type=client_credentials&client_id=' + key + '&client_secret=' + secret,
+	headers: {
+		'Content-Type': 'application/x-www-form-urlencoded'
+		}
+	}).then(function(response) {
+		return response.json();
+	}).then(function(data) {
+		console.log('token', data);
+		token = data.access_token;
+		tokenType = data.token_type;
+		expires = new Date().getTime() + (data.expires_in * 1000);
+	}).catch(function(err) {
+		console.log('something went wrong...', err);
+	});
+};
+
+// api call for oAuth 2
+	
+fetch('https://api.petfinder.com/v2/oauth2/token', {
+	method: 'POST',
+	body: 'grant_type=client_credentials&client_id=' + key + '&client_secret=' + secret,
+	headers: {
+		'Content-Type': 'application/x-www-form-urlencoded'
+	}
+}).then(function(response) {
+	return response.json();
+}).then(function(data) {
+	console.log('token', data);
+	return fetch('https://api.petfinder.com/v2/animals?size=' + size + '&type=' + type + '&status=' + status, {
+		headers: {
+			'Authorization': data.token_type + ' ' + data.access_token,
+			'Content-Type': 'application/x-www-form-urlencoded'
+		}
+	});
+}).then(function(response) {
+	return response.json();
+}).then(function(data) {
+	var name = data['animals'][0]['name'];
+	document.getElementById('badge').innerHTML=name;
+	console.log(data['animals'][0]['name']);
+
+}).catch(function(err) {
+	console.log('something went wrong... ', err);
+});
+
+// check token & get pets
+var callDoggos = function() {
+	if (!expires || expires-new Date.getTime() < 1) {
+		console.log('new call');
+		getOAuth().then(function() {
+			getDoggos();
 		});
-fetch("https://api.thedogapi.com/v1/images/search?breed_id=8")
-		.then((response) => {
-			return response.json();
-		})
-		.then((data) => {
-			const imageUrl2 = data[0]["url"];
-			var newDog2 = document.createElement("img");
-			newDog2.src = imageUrl2;
-			document.body.appendChild(newDog2);
-			console.log(imageUrl2);
-			console.log(data);
-		});  */
-
-var pf = new petfinder.Client({apiKey:"", secret:""});
-
-pf.animal.search()
-    .then(function (response) {
-    	console.log(response);
-        // Do something with `response.data.animals`
-    })
-    .catch(function (error) {
-        // H
-    });
+		return;
+	}
+	getDoggos();
+};
