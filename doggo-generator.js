@@ -18,7 +18,8 @@ var getDoggos = function() {
 	}).then(function(response) {
 		return response.json();
 	}).then(function(data) {
-		var doggos = data.animals;
+		console.log('Doggos', data);
+		/*var doggos = data.animals;
 		doggos.forEach(function (doggo){
 			var largePhoto = doggo && doggo['photos'][0] && doggo['photos'][0]['medium'] ? doggo['photos'][0]['medium'] : "cheyenne/cheyenne_hero.jpg";
 			console.log(doggo);
@@ -41,7 +42,7 @@ var getDoggos = function() {
 				//doginfo.appendChild(dogDescription);
 				document.getElementById('cards').appendChild(card);
 			};
-			createCard();
+			createCard();*/
 		});
 	}).catch(function(err){
 		console.log('something went wrong...', err);

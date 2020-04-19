@@ -21,6 +21,11 @@ Alaskan Husky = 8
 - Gender
 
 
+## Resources for Next Steps
+- Get working with Next.js
+- Follow this tutorial to get set up with Node & Next.js together
+
+
 ## JS Resources
 - https://gomakethings.com/using-oauth-with-fetch-in-vanilla-js/
 
